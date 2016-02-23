@@ -25,7 +25,7 @@
             </NavigationThemeTransition>
         </TransitionCollection>
     </Page.Transitions>
-    <ScrollViewer>
+   
         <Grid x:Name="LayoutRoot">
             <Grid.Background>
                 <ImageBrush ImageSource="Assets/background/Background.png"/>
@@ -56,12 +56,14 @@
             <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,19.5,19,0">
                 <!--<StackPanel>-->
                     <!--<Image Source="{Binding ImagePath}" Margin="0,0,0,20" Height="160" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="UniformToFill" ></Image>-->
+            <ScrollViewer>
                 <TextBlock Text="{Binding Overview}" TextAlignment="Justify" FontFamily="Assets/fonts/LANENAR_.ttf#Lane"  TextWrapping="Wrap" FontSize="20" Foreground="White"></TextBlock>
-                <!--</StackPanel>-->
+            </ScrollViewer>
+            <!--</StackPanel>-->
 
 
 
             </Grid>
         </Grid>
-    </ScrollViewer>
+    
 </Page>
