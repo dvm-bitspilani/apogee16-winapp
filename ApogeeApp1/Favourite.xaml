@@ -1,0 +1,92 @@
+﻿<Page
+    x:Class="ApogeeApp1.Favourite"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ApogeeApp1"
+    
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Black">
+    <!--xmlns:data="using:HubApp4.FavData"
+    DataContext="{Binding DefaultViewModel.Item, RelativeSource={RelativeSource Self}}"
+    d:DataContext="{Binding Groups, Source={d:DesignData Source=../HubApp4.Shared/DataModel/Fav.json, Type=data:SampleFavSource}}"-->
+
+    <Page.Resources>
+        <SolidColorBrush x:Name="foreg" Color="Black"></SolidColorBrush>
+        <SolidColorBrush x:Name="foreg2" Color="Gray"></SolidColorBrush>
+        <!-- <DataTemplate x:Key="Standardlong200x180TileItemTemplate">
+            <Grid Margin="0,0,9.5,9.5" Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" 
+                 >
+                <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}" Height="138.5" Width="335"/>
+                <TextBlock  Text="{Binding Title}" VerticalAlignment="Bottom" Margin="9.5,0,0,6.5" Style="{ThemeResource BaseTextBlockStyle}"/>
+            </Grid>
+       
+        </DataTemplate> -->
+        <DataTemplate x:Key="StdTextTemplate">
+            <Grid>
+                <StackPanel>
+                    <TextBlock Text="{Binding Title}" Margin="15,0,0,20" FontSize="25" FontWeight="SemiBold" FontFamily="Assets/Fonts/LANENAR_.ttf#Lane" />
+                    <Line Fill="Gray" Stroke="Gray" X1="10" X2="380"  Y1="0" Y2="0" StrokeThickness="1" Margin="0,0,0,20" StrokeEndLineCap="Triangle" StrokeStartLineCap="Triangle" Opacity="0.5"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/background/Background.png"/>
+        </Grid.Background>
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title Panel -->
+        <StackPanel Grid.Row="0" Margin="19,0,0,0">
+            <!--     <TextBlock x:Uid="Header" Text="OASIS 2015" Foreground="White" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,5" />-->
+            <TextBlock  Text="Favourites" Margin="15,20,0,10"  FontFamily="Assets/fonts/Moon Light.otf#Moon" FontSize="35" Foreground="Gray"
+           TextWrapping="Wrap"
+           Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}" />    </StackPanel>
+        <!--TODO: Content should be placed within the following grid-->
+
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0" >
+
+            <ScrollViewer>
+                <ListView
+                       x:Name="FavListView"
+                        Margin="0,0,0,0"
+                        AutomationProperties.AutomationId="ItemGridView"
+                        AutomationProperties.Name="Items In Group"
+                        ItemTemplate="{StaticResource StdTextTemplate}"
+                       IsItemClickEnabled="True"
+                        SelectionMode="None"
+                        ItemClick="ListView_ItemClick"
+                      
+                       Loaded="ListView_Loaded"
+                        ContinuumNavigationTransitionInfo.ExitElementContainer="True"
+                       >
+                    <!-- ItemsSource="{Binding Groups}"
+                        Tag="{Binding Id}"
+                        ItemClick="ItemView_ItemClick"-->
+
+                    <!--<GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid />
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>-->
+                </ListView>
+
+
+            </ScrollViewer>
+
+        </Grid>
+    </Grid>
+</Page>

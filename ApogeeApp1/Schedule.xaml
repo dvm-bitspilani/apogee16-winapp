@@ -1,0 +1,123 @@
+﻿<Page
+    x:Class="ApogeeApp1.Schedule"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ApogeeApp1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:ApogeeApp1.Data1"
+    DataContext="{Binding DefaultViewModel.Group, RelativeSource={RelativeSource Self}}"
+    d:DataContext="{Binding Groups[0], Source={d:DesignData Source=/DataModel/SampleData1.json, Type=data:SampleDataSource1}}"
+    mc:Ignorable="d" 
+    Background="Black">
+
+    <Page.Resources>
+        <SolidColorBrush x:Name="foreg" Color="Black"></SolidColorBrush>
+        <SolidColorBrush x:Name="foreg2" Color="Gray"></SolidColorBrush>
+        <DataTemplate x:Key="ListItemTemplatex">
+            <StackPanel Orientation="Horizontal" Height="Auto" Width="350">
+                <StackPanel Height="Auto" Margin="5,0,5,15" Width="290">
+                    <TextBlock TextWrapping="Wrap" Text="{Binding Title}" FontWeight="SemiBold" FontFamily="Assets/fonts/LANENAR_.ttf#Lane" FontSize="25" Style="{ThemeResource ListViewItemTextBlockStyle}" Foreground="WhiteSmoke"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                        <TextBlock  Foreground="WhiteSmoke" Margin="0,0,5,0" TextWrapping="Wrap"  Text="Time:  " Height="18" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}"/>
+                        <TextBlock TextWrapping="Wrap" Text="{Binding Time}" Foreground="WhiteSmoke" Height="18" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                        <TextBlock Foreground="WhiteSmoke" Margin="0,0,5,0" TextWrapping="Wrap" Text="Venue:  " Height="18" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}"/>
+                        <TextBlock TextWrapping="Wrap" Text="{Binding Venue}" Height="18" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}" Foreground="WhiteSmoke" />
+                    </StackPanel>
+                </StackPanel>
+                <Button  Margin="0,-15,0,0"  BorderBrush="{x:Null}" Click="Mappin_Click" Tag="{Binding UniqueId}" MinWidth="50" >
+
+                    <Image Source="Assets/icons/Map.png" Height="30"  Width="30"/>
+                </Button>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/background/Background.png"/>
+        </Grid.Background>
+        <Pivot x:Name="myPivot" Title="SCHEDULE" Margin="0,0,10,1" Foreground="White">
+            <Pivot.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock  Foreground="White" SelectionHighlightColor="White" Margin="0,10,0,-10" Text="{Binding}" FontSize="40"/>
+                </DataTemplate>
+            </Pivot.HeaderTemplate>
+
+            <PivotItem Header="Feb25" >
+
+                <!-- <TextBlock Text="{Binding Items[0].Content}" FontSize="15" TextWrapping="Wrap"/> -->
+                <ScrollViewer>
+                    <Grid>
+
+                        <ListView 
+                        AutomationProperties.AutomationId="SchList25"
+                        AutomationProperties.Name="Items In Group"
+                        SelectionMode="None"
+                        IsItemClickEnabled="True"
+                        ItemsSource="{Binding Items[0].SubItems}"
+                        ItemTemplate="{StaticResource ListItemTemplatex}"
+                     ItemClick="ListView_ItemClick"
+                        ContinuumNavigationTransitionInfo.ExitElementContainer="True">
+                        </ListView>
+                    </Grid>
+                </ScrollViewer>
+
+            </PivotItem>
+            <PivotItem Header="Feb26" >
+                <ScrollViewer>
+                    <Grid>
+                        <ListView 
+                        AutomationProperties.AutomationId="SchList26"
+                        AutomationProperties.Name="Items In Group"
+                        SelectionMode="None"
+                        IsItemClickEnabled="True"
+                        ItemsSource="{Binding Items[1].SubItems}"
+                        ItemTemplate="{StaticResource ListItemTemplatex}"
+                    ItemClick="ListView_ItemClick"
+                        ContinuumNavigationTransitionInfo.ExitElementContainer="True">
+                        </ListView>
+                    </Grid>
+                </ScrollViewer>
+            </PivotItem>
+            <PivotItem Header="Feb27">
+                <ScrollViewer>
+                    <Grid>
+                        <ListView 
+                        AutomationProperties.AutomationId="SchList27"
+                        AutomationProperties.Name="Items In Group"
+                        SelectionMode="None"
+                        IsItemClickEnabled="True"
+                        ItemsSource="{Binding Items[2].SubItems}"
+                        ItemTemplate="{StaticResource ListItemTemplatex}"
+                    ItemClick="ListView_ItemClick"
+                        ContinuumNavigationTransitionInfo.ExitElementContainer="True">
+                        </ListView>
+                    </Grid>
+                </ScrollViewer>
+            </PivotItem>
+            <PivotItem Header="Feb28">
+                <ScrollViewer>
+                    <Grid>
+                        <ListView 
+                        AutomationProperties.AutomationId="SchList28"
+                        AutomationProperties.Name="Items In Group"
+                        SelectionMode="None"
+                        IsItemClickEnabled="True"
+                        ItemsSource="{Binding Items[3].SubItems}"
+                        ItemTemplate="{StaticResource ListItemTemplatex}"
+                    ItemClick="ListView_ItemClick"
+                        ContinuumNavigationTransitionInfo.ExitElementContainer="True">
+                        </ListView>
+                    </Grid>
+                </ScrollViewer>
+            </PivotItem>
+            
+
+
+        </Pivot>
+
+
+    </Grid>
+</Page>

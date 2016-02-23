@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
+  <Identity Name="37497SUBITS-Pilani.APOGEE2016" Publisher="CN=8DFBA442-2D8C-429D-8A75-C734576E4B88" Version="1.1.0.0" />
+  <mp:PhoneIdentity PhoneProductId="6b0c049a-c750-43a6-b703-bc8425fe51db" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>APOGEE 2016</DisplayName>
+    <PublisherDisplayName>D.V.M. BITSPilani</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.3.1</OSMinVersion>
+    <OSMaxVersionTested>6.3.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="ApogeeApp1.App">
+      <m3:VisualElements DisplayName="APOGEE 2016" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\SmallLogo.png" Description="APOGEE, the technical festival of BITS Pilani, hereby declares mobile application for itself. This application will give details regarding updates and schedules of all events in APOGEE 2016." ForegroundText="light" BackgroundColor="transparent" ToastCapable="true">
+        <m3:DefaultTile Square71x71Logo="Assets\Square71x71Logo.png">
+        </m3:DefaultTile>
+        <m3:SplashScreen Image="Assets\SplashScreen.png" />
+        <m3:InitialRotationPreference>
+          <m3:Rotation Preference="portrait" />
+        </m3:InitialRotationPreference>
+      </m3:VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClientServer" />
+    <DeviceCapability Name="location" />
+  </Capabilities>
+</Package>

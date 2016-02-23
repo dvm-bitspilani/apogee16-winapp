@@ -1,0 +1,572 @@
+﻿    <Page
+    x:Class="ApogeeApp1.HubPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ApogeeApp1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    d:DataContext="{Binding Source={d:DesignData Source=/DataModel/SampleData.json, Type=data:SampleDataSource}}"
+    xmlns:data="using:ApogeeApp1.Data"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <SolidColorBrush x:Name="foreg" Color="Black"></SolidColorBrush>
+        <SolidColorBrush x:Name="foreg2" Color="Gray"></SolidColorBrush>
+        <Style TargetType="TextBlock" x:Key="ContactName">
+            <Setter Property="Foreground" Value="WhiteSmoke" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="FontSize" Value="22" />
+            <Setter Property="FontFamily" Value="Assets/fonts/LANENAR_.ttf#Lane"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="ContactPost">
+            <Setter Property="Foreground" Value="WhiteSmoke" />
+            <Setter Property="FontStyle" Value="Italic" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="ContactNo">
+            <Setter Property="Foreground" Value="WhiteSmoke" />
+
+            <Setter Property="FontSize" Value="18" />
+        </Style>
+        <Style TargetType="TextBlock" x:Key="ContactEmail">
+            <Setter Property="Foreground" Value="WhiteSmoke" />
+            <Setter Property="TextWrapping" Value="Wrap"/>
+
+            <Setter Property="FontSize" Value="15" />
+        </Style>
+        <DataTemplate x:Key="HubSectionHeaderTemplate">
+            <TextBlock Margin="0,0,0,-9.5" Text="{Binding}" FontSize="40" FontWeight="Light" FontFamily="Segoe UI" Style="{ThemeResource HeaderTextBlockStyle}" Foreground="Gray" />
+        </DataTemplate>
+        <DataTemplate x:Key="HubSectionHeaderTemplate2">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="0,0,0,-9.5" Text="{Binding}"  FontSize="40" FontWeight="Light" FontFamily="Segoe UI" Style="{ThemeResource HeaderTextBlockStyle}" Width="280" Foreground="Gray" />
+
+                <Image Source="Assets/icons/Search-36.png" Width="30" Height="40" Margin="40,10,0,0" Tapped="Image_Tapped"/>
+
+            </StackPanel>
+        </DataTemplate>
+
+        <!-- Grid-appropriate item template as seen in section 2 -->
+        <DataTemplate x:Key="Standardlong200x180TileItemTemplate">
+            <Grid Margin="0,0,9.5,9.5" Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}">
+                <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}" Height="138.5" Width="350"/>
+                <TextBlock Text="{Binding Title}" VerticalAlignment="Bottom" Margin="9.5,0,0,6.5" Style="{ThemeResource BaseTextBlockStyle}"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="Standard200x180TileItemTemplate">
+            <Grid Margin="0,0,12,12" Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}">
+                <Image Source="{Binding ImagePath}" Opacity="0.8" Stretch="Fill" AutomationProperties.Name="{Binding Title}" Height="150" Width="170"/>
+                <TextBlock Text="{Binding Title}" Foreground="Black" VerticalAlignment="Bottom" Margin="9.5,0,0,6.5" Style="{ThemeResource BaseTextBlockStyle}"/>
+            </Grid>
+        </DataTemplate>
+
+
+
+        <DataTemplate x:Key="StandardTripleLineItemTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Margin="0,9.5,0,0" Grid.Column="0" HorizontalAlignment="Left">
+                    <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}" Height="79" Width="79"/>
+                </Border>
+                <StackPanel Grid.Column="1" Margin="14.5,9,0,0">
+                    <TextBlock Foreground="WhiteSmoke" FontSize="25"  Text="{Binding Title}" Style="{ThemeResource ListViewItemTextBlockStyle}" FontFamily="Assets/fonts/LANENAR_.ttf#Lane" FontWeight="SemiBold"/>
+                    <TextBlock Foreground="White" FontSize="18
+                               "  FontFamily="Assets/fonts/LANENAR_.ttf#Lane" Text="{Binding Rules}" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}" FontStyle="Italic"/>
+                    <TextBlock Foreground="White" FontSize="18"  FontFamily="Assets/fonts/LANENAR_.ttf#Lane" Text="{Binding Eligibility}" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}"/>
+                    
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="StandardDoubleLineItemTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Margin="0,9.5,0,0" Grid.Column="0" HorizontalAlignment="Left">
+                    <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}" Height="79" Width="79"/>
+                </Border>
+                <StackPanel Grid.Column="1" Margin="14.5,14,0,0">
+                    <TextBlock Foreground="WhiteSmoke" FontSize="28"  Text="{Binding Title}" Style="{ThemeResource ListViewItemTextBlockStyle}" FontFamily="Assets/fonts/LANENAR_.ttf#Lane" FontWeight="SemiBold"/>
+                    <TextBlock Foreground="White" FontSize="20"  FontFamily="Assets/fonts/LANENAR_.ttf#Lane" Text="{Binding Rules}" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+    <Page.BottomAppBar>
+        <CommandBar >
+            <!--<CommandBar.SecondaryCommands>
+
+
+                <AppBarButton Label="know your id" Click="KnowId_Click"/>
+                <AppBarToggleButton Label="results" Click="Results_Click"/>
+            </CommandBar.SecondaryCommands>-->
+
+            <!-- <AppBarButton Label="Sponsors" Click="SponsorsButton_Click">
+
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="$"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            -->
+            <AppBarButton Icon="Map" Label="map" Click="MapButton_Click"/>
+            <AppBarButton Icon="Calendar" Label="schedule" Click="ScheduleButton_Click"/>
+            <!--<AppBarButton Icon="Clock" Label="events now" Click="EventsNow_Click"/>-->
+            <AppBarButton Icon="Favorite" Label="favorites" Click="favButton_Click"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid x:Name="LayoutRoot">
+        <Hub x:Name="Hub" x:Uid="Hub" Header="jjjj" >
+            <Hub.Background>
+                <ImageBrush ImageSource="Assets/background/Background8.png" AlignmentX="Left" Stretch="Uniform"/>
+            </Hub.Background>
+            <Hub.HeaderTemplate>
+                <DataTemplate>
+                    <!-- Back button and page title -->
+                    <Grid Margin="0,20,0,0">
+
+
+                        <!--   <Image Source="Assets/color Comp 1_00000.jpg" Height=" 100"></Image>
+                        <Rectangle Fill="#FF363434" Height="15" Width="400" />-->
+
+
+                    </Grid>
+                </DataTemplate>
+            </Hub.HeaderTemplate>
+
+
+            <!-- <Hub x:Name="Hub" x:Uid="Hub" Header="application name" Background="{ThemeResource HubBackgroundImageBrush}">
+            <HubSection x:Uid="HubSection1" Header="SECTION 1" DataContext="{Binding Groups}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
+                <DataTemplate>
+                    <ListView
+                        ItemsSource="{Binding}"
+                        IsItemClickEnabled="True"
+                        ItemClick="GroupSection_ItemClick"
+                        ContinuumNavigationTransitionInfo.ExitElementContainer="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="0,0,0,27.5">
+                                    <TextBlock Text="{Binding Title}" Style="{ThemeResource ListViewItemTextBlockStyle}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </DataTemplate>
+            </HubSection>
+-->
+            <HubSection x:Uid="HubSection2" Header="kernel events" Width="Auto" 
+                         DataContext="{Binding Groups[0].Items[0]}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
+
+                <DataTemplate>
+                    <ScrollViewer>
+                        <GridView
+                        Margin="0,0,0,0"
+                        ItemsSource="{Binding SubItems}"
+                        AutomationProperties.AutomationId="ItemGridView"
+                        AutomationProperties.Name="Items In Group"
+                        ItemTemplate="{StaticResource Standardlong200x180TileItemTemplate}"
+                        SelectionMode="None"
+                        IsItemClickEnabled="True"
+                        ItemClick="ItemView_ItemClick"
+                        ContinuumNavigationTransitionInfo.ExitElementContainer="True">
+                            <GridView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <ItemsWrapGrid />
+                                </ItemsPanelTemplate>
+                            </GridView.ItemsPanel>
+                        </GridView>
+                    </ScrollViewer>
+                </DataTemplate>
+            </HubSection>
+            <!--          
+            <HubSection x:Uid="HubSection2" Header="papers/projects" Width="Auto"
+                         DataContext="{Binding Groups[1]}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
+                <DataTemplate>
+                    <GridView
+                        Margin="0,9.5,0,0"
+                        ItemsSource="{Binding Items}"
+                        AutomationProperties.AutomationId="ItemGridView"
+                        AutomationProperties.Name="Items In Group"
+                        ItemTemplate="{StaticResource Standardlong200x180TileItemTemplate}"
+                        SelectionMode="None"
+                        IsItemClickEnabled="True"
+                        ItemClick="ItemView_ItemClick"
+                        ContinuumNavigationTransitionInfo.ExitElementContainer="True">
+                        <GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid />
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>
+                    </GridView>
+                </DataTemplate>
+            </HubSection>
+            -->
+            <HubSection x:Uid="HubSection5" Header="notable speakers"
+                            DataContext="{Binding Groups[1].Items[0]}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}" >
+                <DataTemplate>
+                    <ListView 
+                            AutomationProperties.AutomationId="ItemListViewSection5"
+                            AutomationProperties.Name="Items In Group"
+                            SelectionMode="None"
+                            IsItemClickEnabled="True"
+                            ItemsSource="{Binding SubItems}"
+                            ItemTemplate="{StaticResource StandardDoubleLineItemTemplate}"
+                            ItemClick="Speakers_Click"                         
+                            ContinuumNavigationTransitionInfo.ExitElementContainer="True">
+                    </ListView>
+                </DataTemplate>
+            </HubSection>
+
+            <HubSection x:Uid="HubSection2" Header="events" Width="Auto"
+                         DataContext="{Binding Groups[0]}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate2}">
+                <DataTemplate>
+                    <GridView
+                        Margin="0,0,0,0"
+                        ItemsSource="{Binding Items}"
+                        AutomationProperties.AutomationId="ItemGridView"
+                        AutomationProperties.Name="Items In Group"
+                        ItemTemplate="{StaticResource Standard200x180TileItemTemplate}"
+                        SelectionMode="None"
+                        IsItemClickEnabled="True"
+                        ItemClick="EventView_ItemClick"
+                        ContinuumNavigationTransitionInfo.ExitElementContainer="True">
+                        <GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid HorizontalAlignment="Stretch" MaximumRowsOrColumns="2" Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>
+                    </GridView>
+                </DataTemplate>
+            </HubSection>
+
+            <HubSection x:Uid="HubSection3" Header="workshops"
+                            DataContext="{Binding Groups[1].Items[1]}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}" >
+                <DataTemplate>
+                    <ListView 
+                            AutomationProperties.AutomationId="ItemListViewSection5"
+                            AutomationProperties.Name="Items In Group"
+                            SelectionMode="None"
+                            IsItemClickEnabled="True"
+                            ItemsSource="{Binding SubItems}"
+                            ItemTemplate="{StaticResource StandardTripleLineItemTemplate}"
+                            ItemClick="Speakers_Click"                         
+                            ContinuumNavigationTransitionInfo.ExitElementContainer="True">
+                    </ListView>
+                </DataTemplate>
+            </HubSection>
+
+
+
+            <!--<HubSection x:Uid="HubSection2" Header="workshops" Width="Auto"
+                         DataContext="{Binding Groups[3]}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
+                <DataTemplate>
+                    <GridView
+                        Margin="0,9.5,0,0"
+                        ItemsSource="{Binding Items}"
+                        AutomationProperties.AutomationId="ItemGridView"
+                        AutomationProperties.Name="Items In Group"
+                        ItemTemplate="{StaticResource Standard200x180TileItemTemplate}"
+                        SelectionMode="None"
+                        IsItemClickEnabled="True"
+                        ItemClick="ItemView_ItemClick"
+                        ContinuumNavigationTransitionInfo.ExitElementContainer="True">
+                        <GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid HorizontalAlignment="Stretch" MaximumRowsOrColumns="2" Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>
+                    </GridView>
+                </DataTemplate>
+            </HubSection>-->
+
+            <HubSection x:Uid="HubSection3" Header="contact us"
+                         HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
+                <DataTemplate>
+
+                    <ScrollViewer>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="110"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*" ></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Image Source="Assets/ppl/controls.png" Margin="0,5,0,5" Height="130" Width="100" Grid.Row="0">
+                            </Image>
+
+                            <StackPanel Margin="15,10,0,0" Grid.Row="0" Grid.Column="1">
+                                <TextBlock Style="{StaticResource ContactName}">Falguni Agrawal</TextBlock>
+                                <TextBlock Style="{StaticResource ContactPost}">Projects, Events and Registration</TextBlock>
+                                <TextBlock   Style="{StaticResource ContactNo}">+91-9928089204</TextBlock>
+                                <TextBlock Style="{StaticResource ContactEmail}" >controls@bits-apogee.org
+                                </TextBlock>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="Assets/icons/Call.png" Margin="0,5,0,0" Width="70" Height="20" HorizontalAlignment="Left"  Tapped="Controls_Tapped"/>
+                                    <Image Source="Assets/icons/E-Mail.png" Margin="0,5,0,0"  Width="70" Height="20" HorizontalAlignment="Right" Tapped="ControlsEmail_Tapped"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <Image Source="Assets/ppl/pcr.png" Margin="0,5,0,5" Height="130" Width="100" Grid.Row="1">
+                            </Image>
+                            <StackPanel Margin="15,10,0,0" Width="Auto" Grid.Row="1" Grid.Column="1">
+                                <TextBlock Style="{StaticResource ContactName}">Aditya Chauhan</TextBlock>
+                                <TextBlock Height="Auto"  Style="{StaticResource ContactPost}">Invites and Correspondence</TextBlock>
+                                <TextBlock  Style="{StaticResource ContactNo}">+91-8239822574</TextBlock>
+                                <TextBlock Style="{StaticResource ContactEmail}">pcr@bits-apogee.org</TextBlock>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="Assets/icons/Call.png" Margin="0,5,0,0" Width="70" Height="20" HorizontalAlignment="Left"  Tapped="Pcr_Tapped"/>
+                                    <Image Source="Assets/icons/E-Mail.png" Margin="0,5,0,0"  Width="70" Height="20" HorizontalAlignment="Right"  Tapped="PcrEmail_Tapped"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <Image Source="Assets/ppl/dvm.png" Margin="0,5,0,5" Height="130" Width="100" Grid.Row="2">
+                            </Image>
+
+                            <StackPanel Margin="15,10,0,0" Grid.Row="2" Grid.Column="1">
+                                <TextBlock Style="{StaticResource ContactName}">Pranjal Gupta</TextBlock>
+                                <TextBlock Style="{StaticResource ContactPost}">Website and Online Registration</TextBlock>
+                                <TextBlock  Style="{StaticResource ContactNo}">+91-8094076999</TextBlock>
+                                <TextBlock Style="{StaticResource ContactEmail}" >webmaster@bits-apogee.org
+                                </TextBlock>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="Assets/icons/Call.png" Margin="0,5,0,0" Width="70" Height="20" HorizontalAlignment="Left"  Tapped="Dvm_Tapped"/>
+                                    <Image Source="Assets/icons/E-Mail.png" Margin="0,5,0,0"  Width="70" Height="20" HorizontalAlignment="Right" Tapped="DvmEmail_Tapped"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <Image Source="Assets/ppl/adp.png" Margin="0,5,0,5" Height="130" Width="100" Grid.Row="3">
+                            </Image>
+
+                            <StackPanel Margin="15,10,0,0" Grid.Row="3" Grid.Column="1">
+                                <TextBlock Style="{StaticResource ContactName}">Kunal Barapatre</TextBlock>
+                                <TextBlock Style="{StaticResource ContactPost}">Publicity and Online Partnership</TextBlock>
+                                <TextBlock   Style="{StaticResource ContactNo}">+91-9928089204</TextBlock>
+                                <TextBlock Style="{StaticResource ContactEmail}" >adp@bits-apogee.org
+                                </TextBlock>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="Assets/icons/Call.png" Margin="0,5,0,0" Width="70" Height="20" HorizontalAlignment="Left"  Tapped="Adp_Tapped"/>
+                                    <Image Source="Assets/icons/E-Mail.png" Margin="0,5,0,0"  Width="70" Height="20" HorizontalAlignment="Right" Tapped="AdpEmail_Tapped"/>
+                                </StackPanel>
+                            </StackPanel>
+                            
+                            <Image Source="Assets/ppl/recnacc.png" Margin="0,5,0,5" Height="130" Width="100" Grid.Row="4">
+                            </Image>
+
+                            <StackPanel Margin="15,10,0,0" Grid.Row="4" Grid.Column="1">
+                                <TextBlock Style="{StaticResource ContactName}">Aditya Gogri</TextBlock>
+                                <TextBlock Style="{StaticResource ContactPost}">Reception and Acccommodation</TextBlock>
+                                <TextBlock   Style="{StaticResource ContactNo}">+91-9772229698</TextBlock>
+                                <TextBlock Style="{StaticResource ContactEmail}" >recnacc@bits-apogee.org
+                                </TextBlock>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="Assets/icons/Call.png" Margin="0,5,0,0" Width="70" Height="20" HorizontalAlignment="Left"  Tapped="Rec_Tapped"/>
+                                    <Image Source="Assets/icons/E-Mail.png" Margin="0,5,0,0" Width="70" Height="20" HorizontalAlignment="Right" Tapped="RecEmail_Tapped"/>
+                                </StackPanel>
+                            </StackPanel>
+                            
+
+                            <Image Source="Assets/ppl/spons.png" Margin="0,5,0,5" Height="130" Width="100" Grid.Row="5">
+                            </Image>
+                            <StackPanel Margin="15,10,0,0" Grid.Row="5" Grid.Column="1">
+                                <TextBlock Style="{StaticResource ContactName}">Mohammed Motiwala</TextBlock>
+                                <TextBlock Style="{StaticResource ContactPost}">Sponsorship and Marketing</TextBlock>
+                                <TextBlock Style="{StaticResource ContactNo}">+91-7728086752</TextBlock>
+                                <TextBlock Style="{StaticResource ContactEmail}">sponsorship@bits-apogee.org</TextBlock>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="Assets/icons/Call.png" Width="70" Margin="0,5,0,0" Height="20" HorizontalAlignment="Left"   Tapped="Sponz_Tapped" />
+                                    <Image Source="Assets/icons/E-Mail.png"  Width="70" Margin="0,5,0,0" Height="20" HorizontalAlignment="Right"  Tapped="SponzEmail_Tapped"/>
+                                </StackPanel>
+                            </StackPanel>
+
+
+                            <Image Source="Assets/ppl/pep.png" Margin="0,5,0,5" Height="130" Width="100" Grid.Row="6">
+                            </Image>
+                            <StackPanel Margin="15,10,0,0" Grid.Column="1" Grid.Row="6">
+                                <TextBlock Style="{StaticResource ContactName}" >Aditya VijayKumar</TextBlock>
+                                <TextBlock  Style="{StaticResource ContactPost}" >Paper Presentation and Guest Lectures</TextBlock>
+                                <TextBlock  Style="{StaticResource ContactNo}">+91-8385857855</TextBlock>
+                                <TextBlock Style="{StaticResource ContactEmail}" >pep@bits-apogee.org
+                                </TextBlock>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="Assets/icons/Call.png" Margin="0,5,0,0" Width="70" Height="20" HorizontalAlignment="Left"  Tapped="Pep_Tapped"/>
+                                    <Image Source="Assets/icons/E-Mail.png" Margin="0,5,0,0"  Width="70" Height="20" HorizontalAlignment="Right" Tapped="PepEmail_Tapped"/>
+                                </StackPanel>
+                            </StackPanel>                      
+
+                        </Grid>
+                    </ScrollViewer>
+                </DataTemplate>
+                <!--<DataTemplate>
+                    <ListView 
+                        AutomationProperties.AutomationId="ItemListViewSection3"
+                        AutomationProperties.Name="Items In Group"
+                        SelectionMode="None"
+                        IsItemClickEnabled="True"
+                        ItemsSource="{Binding Items}"
+                        ItemTemplate="{StaticResource StandardTripleLineItemTemplate}"
+                        ItemClick="ItemView_ItemClick"
+                        ContinuumNavigationTransitionInfo.ExitElementContainer="True">
+                    </ListView>
+                </DataTemplate>
+                    -->
+            </HubSection>
+            <HubSection x:Uid="HubSection4"   Background="WhiteSmoke">
+                <HubSection.Header>
+                    <Image Source="Assets/background/NavDrawer3.png" Width="390" Height="160" Stretch="Fill" Margin="1,-25,0,0"/>
+                </HubSection.Header>
+                <DataTemplate>
+                   
+                        <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="55"/>
+                        </Grid.RowDefinitions>
+                        <ScrollViewer>
+                        <StackPanel Orientation="Vertical" Margin="0,-10,0,0">
+
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Left" Width="270" Height="50" Tapped="About_Tapped">
+                                <Image Source="Assets/icons/about1.png" Margin="20,0,0,0" Width="28" AllowDrop="True"/>
+                                <TextBlock Text="About" Margin="20,5,0,0" FontSize="28" Style="{ThemeResource HeaderTextBlockStyle}" Foreground="#FF615C5C"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Left" Width="270" Height="50" Tapped="Prof_Tapped">
+                                <Image Source="Assets/icons/Guitar-36.png" Margin="20,0,0,0" Width="28"/>
+                                <TextBlock Text="Profshows" Margin="20,5,0,0" Foreground="#FF615C5C" FontSize="28" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                            </StackPanel>
+
+                            <!--<StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Left" Width="270" Height="50" Tapped="Pics_Tapped">
+                                <Image Source="Assets/icons/Literature-36.png" Margin="20,0,0,0" Width="28"/>
+                                <TextBlock Text="Literary Fest" Margin="20,5,0,0" Foreground="#FF615C5C" FontSize="28" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                            </StackPanel>-->
+
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Left" Width="270" Height="50" Tapped="ndrf_Tapped">
+                                <Image Source="Assets/icons/Tank-36.png" Margin="20,0,0,0" Width="28"/>
+                                <TextBlock Text="Exhibitions" Margin="20,5,0,0" Foreground="#FF615C5C" FontSize="28" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                            </StackPanel>
+
+                            <!--<StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Left" Width="270" Height="50" Tapped="ceeri_Tapped">
+                                <Image Source="Assets/icons/Circuit-36.png" Margin="20,0,0,0" Width="28"/>
+                                <TextBlock Text="CEERI Exhibition" Margin="20,5,0,0" Foreground="#FF615C5C" FontSize="28" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                            </StackPanel>-->
+
+                            <!--<StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Left" Width="300" Height="50" Tapped="Pics_Tapped">
+                                <Image Source="Assets/icons/Microphone-36.png" Margin="20,0,0,0" Width="28"/>
+                                <TextBlock Text="Youth Conference" Margin="20,5,0,0" Foreground="#FF615C5C" FontSize="28" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                            </StackPanel>-->
+
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Left" Width="300" Height="50" Tapped="Startup_Tapped">
+                                <Image Source="Assets/icons/Launched Rocket-36.png" Margin="20,0,0,0" Width="28"/>
+                                <TextBlock Text="Startup Weekend" Margin="20,5,0,0" Foreground="#FF615C5C" FontSize="28" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Left" Width="270" Height="50" Tapped="Sponsors_Tapped">
+                                <Image Source="Assets/icons/Money Bag-36.png" Margin="20,0,0,0" Width="28"/>
+                                <TextBlock Text="Sponsors" Margin="20,5,0,0" Foreground="#FF615C5C" FontSize="28" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                            </StackPanel>
+
+                            <!--<StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Left" Width="270" Height="50" Tapped="Sponsors_Tapped">
+                                <Image Source="Assets/icons/workshop.png" Margin="20,0,0,0" Width="28"/>
+                                <TextBlock Text="Workshops" Margin="20,5,0,0" Foreground="#FF615C5C" FontSize="28" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                            </StackPanel>-->
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Left" Width="320" Height="50" Tapped="EngPress_Tapped">
+                                    <Image Source="Assets/icons/blog.png" Margin="20,0,0,0" Width="28"/>
+                                    <TextBlock Text="Apogee Blog" Margin="20,5,0,0" Foreground="#FF615C5C" FontSize="28" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Left" Width="270" Height="50">
+                                <Image Source="Assets/icons/Star-36.png" Margin="20,0,0,0" Width="28"/>
+                                <TextBlock Text="Rate and Review" Margin="20,5,0,0" Foreground="#FF615C5C" FontSize="28" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Left" Width="270" Height="50" Tapped="Developers_Tapped">
+                                <Image Source="Assets/icons/Google Code-36.png" Margin="20,0,0,0" Width="28"/>
+                                <TextBlock Text="Developers" Margin="20,5,0,0" Foreground="#FF615C5C" FontSize="28" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                            </StackPanel>
+
+
+                            <!--<Button Width="300" Margin="0,0,0,0" Height="60" BorderBrush="{x:Null}" Click="AboutTheFest_Click">
+                                <StackPanel Orientation="Horizontal" Margin="0,-9,0,0" HorizontalAlignment="Left" Width="270" Height="50">
+                                    <Image Source="Assets/about.png" Margin="10,0,0,0" Width="28"/>
+                                    <TextBlock Text="English Press Blog" Margin="10,5,0,0" Foreground="Black" FontSize="28" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                                </StackPanel>
+                            </Button>-->
+                        </StackPanel>
+                    </ScrollViewer>
+                        <Border BorderBrush="#FF615C5C" BorderThickness="0,0,0,1"></Border>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Grid.Row="1" >
+                            <Image Source="Assets/icons/Facebook-36.png" Margin="100,0,0,10" Width="35" Tapped="fb_Tapped"/>
+                            <Image Source="Assets/icons/Twitter-36.png" Margin="30,0,0,10" Width="35" Tapped="Twitter_Tapped"/>
+                            <Image Source="Assets/icons/youtube.png" Margin="30,0,0,10" Width="35" Tapped="Youtube_Tapped"/>
+                        </StackPanel>
+                           
+                        
+                    </Grid>
+                    
+                </DataTemplate>
+
+            </HubSection>
+
+
+            <!-- 
+            <HubSection x:Uid="HubSection3" Header="SECTION 3"
+                        DataContext="{Binding Groups[1]}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
+                <DataTemplate>
+                    <ListView 
+                        AutomationProperties.AutomationId="ItemListViewSection3"
+                        AutomationProperties.Name="Items In Group"
+                        SelectionMode="None"
+                        IsItemClickEnabled="True"
+                        ItemsSource="{Binding Items}"
+                        ItemTemplate="{StaticResource StandardTripleLineItemTemplate}"
+                        ItemClick="ItemView_ItemClick"
+                        ContinuumNavigationTransitionInfo.ExitElementContainer="True">
+                    </ListView>
+                </DataTemplate>
+            </HubSection>
+
+            <HubSection x:Uid="HubSection4" Header="SECTION 4"
+                        DataContext="{Binding Groups[2]}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
+                <DataTemplate>
+                    <ListView 
+                        AutomationProperties.AutomationId="ItemListViewSection4"
+                        AutomationProperties.Name="Items In Group"
+                        SelectionMode="None"
+                        IsItemClickEnabled="True"
+                        ItemsSource="{Binding Items}"
+                        ItemClick="ItemView_ItemClick"
+                        ContinuumNavigationTransitionInfo.ExitElementContainer="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="0,0,0,19">
+                                    <TextBlock Text="{Binding Title}" Style="{ThemeResource ListViewItemTextBlockStyle}"/>
+                                    <TextBlock Text="{Binding Subtitle}" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </DataTemplate>
+            </HubSection>
+          -->
+        </Hub>
+    </Grid>
+</Page>

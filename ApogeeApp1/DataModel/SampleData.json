@@ -1,0 +1,240 @@
+{"Groups":[
+    {
+        "UniqueId": "Events",
+        "Title": "Events",
+        "Items": [
+            {
+                "UniqueId": "KernelEvents",
+                "Title": "Kernel Events",
+                "ImagePath": "Assets/eventscat/KernelEvents.png",
+                "SubItems": [
+                    {
+                        "UniqueId": "Name1",
+                        "Title": "Name1",
+                        "ImagePath": "Assets/kernel/robowars.png",
+                        "Overview": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Rules": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Eligibility": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Guidelines": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Judging Criteria": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Problem Statements": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Resources": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Sample Questions": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Specifications": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Materials": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Registration Details": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "FAQs": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Sponsors": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Contacts": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse"
+                    },
+                    {
+                        "UniqueId": "Name2",
+                        "Title": "Name2",
+                        "ImagePath": "Assets/kernel/istrike.png",
+                        "Overview": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Rules": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Eligibility": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Guidelines": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Judging Criteria": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Problem Statements": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Resources": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Sample Questions": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Specifications": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Materials": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Registration Details": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "FAQs": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Sponsors": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Contacts": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse"
+                    }
+                ]
+            },
+            {
+                "UniqueId": "EventsCat1",
+                "Title": "EventsCat1",
+                "ImagePath": "Assets/eventscat/build.png",
+                "SubItems": [
+                    {
+                        "UniqueId": "Name3",
+                        "Title": "Name3",
+                        "ImagePath": "",
+                        "Overview": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Rules": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Eligibility": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Guidelines": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Judging Criteria": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Problem Statements": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Resources": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Sample Questions": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Specifications": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Materials": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Registration Details": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "FAQs": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Sponsors": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Contacts": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse"
+                    },
+                    {
+                        "UniqueId": "Name4",
+                        "Title": "Name4",
+                        "ImagePath": "",
+                        "Overview": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Rules": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Eligibility": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Guidelines": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Judging Criteria": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Problem Statements": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Resources": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Sample Questions": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Specifications": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Materials": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Registration Details": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "FAQs": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Sponsors": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Contacts": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse"
+                    }
+                ]
+            },
+            {
+                "UniqueId": "EventsCat2",
+                "Title": "EventsCat2",
+                "ImagePath": "Assets/MediumGray.png",
+                "SubItems": [
+                    {
+                        "UniqueId": "Name5",
+                        "Title": "Name5",
+                        "ImagePath": "",
+                        "Overview": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Rules": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Eligibility": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Guidelines": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Judging Criteria": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Problem Statements": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Resources": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Sample Questions": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Specifications": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Materials": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Registration Details": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "FAQs": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Sponsors": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Contacts": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse"
+                    },
+                    {
+                        "UniqueId": "Name6",
+                        "Title": "Name6",
+                        "ImagePath": "",
+                        "Overview": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Rules": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Eligibility": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Guidelines": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Judging Criteria": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Problem Statements": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Resources": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Sample Questions": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Specifications": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Materials": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Registration Details": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "FAQs": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Sponsors": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Contacts": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "UniqueId": "ApartFromEvents",
+        "Title": "ApartFromEvents",
+        "Items": [
+            {
+                "UniqueId": "NotableSpeakers",
+                "Title": "Notable Speakers",
+                "ImagePath": "",
+                "SubItems": [
+                    {
+                        "UniqueId": "Name7",
+                        "Title": "Dr. Richard Stallman",
+                        "ImagePath": "Assets/ppl/stallman.png",
+                        "Overview": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Rules": "Curabitur class aliquam",
+                        "Eligibility": "26 February",
+                        "Guidelines": "",
+                        "Judging Criteria": "",
+                        "Problem Statements": "",
+                        "Resources": "",
+                        "Sample Questions": "",
+                        "Specifications": "",
+                        "Materials": "",
+                        "Registration Details": "",
+                        "FAQs": "",
+                        "Sponsors": "",
+                        "Contacts": ""
+                    },
+                    {
+                        "UniqueId": "Name8",
+                        "Title": "Name8",
+                        "ImagePath": "Assets/MediumGray.png",
+                        "Overview": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Rules": "Curabitur class aliquam",
+                        "Eligibility": "27 February",
+                        "Guidelines": "",
+                        "Judging Criteria": "",
+                        "Problem Statements": "",
+                        "Resources": "",
+                        "Sample Questions": "",
+                        "Specifications": "",
+                        "Materials": "",
+                        "Registration Details": "",
+                        "FAQs": "",
+                        "Sponsors": "",
+                        "Contacts": ""
+                    }
+                ]
+            },
+            {
+                "UniqueId": "Workshops",
+                "Title": "Workshops",
+                "ImagePath": "",
+                "SubItems": [
+                    {
+                        "UniqueId": "Name9",
+                        "Title": "Android App Development",
+                        "ImagePath": "Assets/workshops/android-icon.png",
+                        "Overview": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Rules": "Authentic Techs",
+                        "Eligibility": "27-28 Feb",
+                        "Guidelines": "",
+                        "Judging Criteria": "",
+                        "Problem Statements": "",
+                        "Resources": "",
+                        "Sample Questions": "",
+                        "Specifications": "",
+                        "Materials": "",
+                        "Registration Details": "",
+                        "FAQs": "",
+                        "Sponsors": "",
+                        "Contacts": ""
+                    },
+                    {
+                        "UniqueId": "Name10",
+                        "Title": "Name8",
+                        "ImagePath": "Assets/workshops/financial2.png",
+                        "Overview": "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse",
+                        "Rules": "Curabitur class aliquam",
+                        "Eligibility": "27 February",
+                        "Guidelines": "",
+                        "Judging Criteria": "",
+                        "Problem Statements": "",
+                        "Resources": "",
+                        "Sample Questions": "",
+                        "Specifications": "",
+                        "Materials": "",
+                        "Registration Details": "",
+                        "FAQs": "",
+                        "Sponsors": "",
+                        "Contacts": ""
+                    }
+                ]
+            }
+        ]
+    }
+]
+}

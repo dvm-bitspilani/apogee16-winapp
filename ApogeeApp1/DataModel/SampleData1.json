@@ -1,0 +1,82 @@
+{"Groups":[
+    {
+        "UniqueId": "Schedule",
+        "Title": "Schedule",
+        "Items": [
+            {
+                "UniqueId": "25Feb",
+                "Title": "25Feb",
+                "SubItems": [
+                    {
+                        "UniqueId": "Name1",
+                        "Title": "Name1",
+                        "Time": "19:00",
+                        "Venue": "SAC"
+                    },
+                    {
+                        "UniqueId": "Name2",
+                        "Title": "Name2",
+                        "Time": "20:00",
+                        "Venue": "FD-II"
+                    }
+                ]
+            },
+            {
+                "UniqueId": "26Feb",
+                "Title": "26Feb",
+                "SubItems": [
+                    {
+                        "UniqueId": "Name3",
+                        "Title": "Name3",
+                        "Time": "21:00",
+                        "Venue": "2201"
+                    },
+                    {
+                        "UniqueId": "Name10",
+                        "Title": "Name10",
+                        "Time": "22:00",
+                        "Venue": "FD-I"
+                    }
+                ]
+            },
+            {
+                "UniqueId": "27Feb",
+                "Title": "27Feb",
+                "SubItems": [
+                    {
+                        "UniqueId": "Name5",
+                        "Title": "Name5",
+                        "Time": "15:00",
+                        "Venue": "Audi"
+                    },
+                    {
+                        "UniqueId": "Name6",
+                        "Title": "Name6",
+                        "Time": "16:00",
+                        "Venue": "LTC"
+                    }
+                ]
+            },
+            {
+                "UniqueId": "28Feb",
+                "Title": "28Feb",
+                "SubItems": [
+                    {
+                        "UniqueId": "Name7",
+                        "Title": "Name7",
+                        "Time": "17:00",
+                        "Venue": "Rotunda"
+                    },
+                    {
+                        "UniqueId": "Name8",
+                        "Title": "Name8",
+                        "Time": "18:00",
+                        "Venue": "NAB Audi"
+                    }
+                ]
+
+            }
+        ]
+    }
+]
+}

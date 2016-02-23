@@ -1,0 +1,72 @@
+﻿<Page
+     x:Name="pageRoot"
+    x:Class="ApogeeApp1.About"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ApogeeApp1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Black">
+    <Page.Resources>
+        <SolidColorBrush x:Name="foreg" Color="Black"></SolidColorBrush>
+        <SolidColorBrush x:Name="foreg2" Color="Gray"></SolidColorBrush>
+    </Page.Resources>
+    <!--<Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Label="wikipedia" Click="Wikipedia_click">
+                <AppBarButton.Icon >
+                    <FontIcon Glyph="W" FontFamily="Copperplate Gothic Bold"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton Label="facebook" Click="Facebook_Click">
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="f"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton Label="english press" Icon="Comment" Click="EngPress_Click">-->
+    <!-- <AppBarButton.Icon>
+                    <FontIcon Glyph="E" FontFamily="Copperplate Gothic Bold"/>
+                </AppBarButton.Icon>-->
+    <!--   </AppBarButton>
+        </CommandBar>
+    </Page.BottomAppBar> -->
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/background/Background.png"/>
+        </Grid.Background>
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title Panel -->
+        <StackPanel Grid.Row="0" Margin="19,0,0,0">
+            <Line Fill="Gray" Stroke="Gray" X1="5" X2="160" Y1="0" Y2="0" StrokeThickness="1" Margin="0,20,0,0"/>
+            <!--     <TextBlock x:Uid="Header" Text="OASIS 2015" Foreground="White" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,5" />-->
+            <TextBlock  Text="About Us" Margin="0,10,0,0"  FontFamily="Assets/fonts/Moon Light.otf#Moon" FontSize="35" Foreground="Gray"
+                       TextWrapping="Wrap"
+                       Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}" />
+            <Line Fill="Gray" Stroke="Gray" X1="5" X2="160" Y1="0" Y2="0" StrokeThickness="1" Margin="0,0,0,10"/>
+        </StackPanel>
+        <!--TODO: Content should be placed within the following grid-->
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
+            <ScrollViewer>
+                <StackPanel>
+                    <!-- <Image Source="Assets/oasis-logo.png" Margin="0,0,0,20" Height="100" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" ></Image>   -->
+                    <TextBlock  FontFamily="Assets/fonts/LANENAR_.ttf#Lane" Margin="0,0,0,0" TextAlignment="Justify" TextWrapping="Wrap" FontSize="22" Foreground="White" FontWeight="Normal">
+In the heart of Pilani lies a fest that pushes the boundaries of student performance and creativity every year. From presenting papers and projects, to bringing into reality imaginative designs that the student mind conjures up, to the events that enthrall everyone who attends, APOGEE, BITS Pilani's technical fest, has always brought together the brightest minds in technology and engineering over the years, and this year, it promises to be bigger than ever.<LineBreak/><LineBreak/>Ever dreamed about establishing civilization in Mars? Ever imagined building exciting vehicles and robots with your own hands? Ever wanted to challenge your mind with mind-bending quizzes, word games, and programming challenges? In the final days of February, APOGEE 2016 returns, with a plethora of classics, and many innovative new events<LineBreak/><LineBreak/>From the town of Pilani, BITS Pilani welcomes you to APOGEE 2016.<LineBreak/><LineBreak/><Bold>The Future is Now !</Bold><LineBreak/><LineBreak/>
+                    </TextBlock>
+                </StackPanel>
+            </ScrollViewer>
+
+        </Grid>
+    </Grid>
+</Page>
