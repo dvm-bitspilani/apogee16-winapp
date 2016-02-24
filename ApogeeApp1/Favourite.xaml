@@ -27,7 +27,6 @@
             <Grid>
                 <StackPanel>
                     <TextBlock Text="{Binding Title}" Margin="15,0,0,20" FontSize="25" FontWeight="SemiBold" FontFamily="Assets/Fonts/LANENAR_.ttf#Lane" />
-                    <Line Fill="Gray" Stroke="Gray" X1="10" X2="380"  Y1="0" Y2="0" StrokeThickness="1" Margin="0,0,0,20" StrokeEndLineCap="Triangle" StrokeStartLineCap="Triangle" Opacity="0.5"/>
                 </StackPanel>
             </Grid>
         </DataTemplate>
