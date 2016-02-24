@@ -1,7 +1,9 @@
 ﻿using ApogeeApp1.Common;
 using ApogeeApp1.Data;
+using ApogeeApp1.Data1;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -222,60 +224,62 @@ namespace ApogeeApp1
                     ListCars = FavClass.ConvertToFavEvent(content);
                 }
                 ListCars.Add(subitem.UniqueId);
-                /* CultureInfo provider = new CultureInfo("es-ES");
+                 CultureInfo provider = new CultureInfo("es-ES");
                  //if (item != null)
                   
-                 var subitemDet = await SampleDataSource.GetGroupAsync("Schedule");
+                 var subitemDet = await SampleDataSource1.GetGroupAsync("Schedule");
                  schedulednotif n = new schedulednotif();
                  int noOfItems = subitemDet.Items.Count;
-                 string date = "25/10/2015";
+                 string date = "24/02/2016";
                  for (int i = 0; i < noOfItems; i++)
                  {
                      int noOfsubitems = subitemDet.Items[i].SubItems.Count;
-                     MessageDialog msgbox4 = new MessageDialog(noOfsubitems.ToString());
-                     await msgbox4.ShowAsync();
+                     //MessageDialog msgbox4 = new MessageDialog(noOfsubitems.ToString());
+                     //await msgbox4.ShowAsync();
                      if (i == 0)
                      {
-                         date = "28/10/2015";
+                         date = "25/02/2016";
                      }
                      else if (i == 1)
                      {
-                         date = "29/10/2015";
+                         date = "26/02/2016";
                      }
                      else if (i == 2)
                      {
-                         date = "30/10/2015";
+                         date = "27/02/2016";
                      }
                      else if (i == 3)
                      {
-                         date = "31/10/2015";
+                         date = "28/02/2016";
                      }
-                     else if (i == 4)
-                     {
-                         date = "01/11/2015";
-                     }
+                     string z111;
                      for (int j = 0; j < noOfsubitems; j++)
                      {
                          if (subitemDet.Items[i].SubItems[j].UniqueId.CompareTo(subitem.UniqueId) == 0)
                          {
-                             string date1 = date + " " + subitemDet.Items[i].SubItems[j].ImagePath;
-                             MessageDialog msgbox5 = new MessageDialog(date1);
-                             await msgbox5.ShowAsync();
-                             //DateTime dt = Convert.ToDateTime(date + subitemDet.Items[0].SubItems[0].ImagePath);
+                             if (subitemDet.Items[i].SubItems[j].Time.Length != 5)
+                             {
+                                 z111 = "0" + subitemDet.Items[i].SubItems[j].Time;
+
+                             }
+                             else
+                                 z111 = subitemDet.Items[i].SubItems[j].Time;
+                             string date1 = date + " " + subitemDet.Items[i].SubItems[j].Time;
+                             //MessageDialog msgbox5 = new MessageDialog(date1);
+                             //await msgbox5.ShowAsync();
+                             //DateTime dt = Convert.ToDateTime(date + subitemDet.Items[0].SubItems[0].Subtitle);
                              DateTime dt = DateTime.ParseExact(date1, "g", provider);
-        
+
                              DateTime ddt = DateTime.Now;
                              var diffInSeconds = (dt - ddt).TotalSeconds;
-                             MessageDialog msgbox6 = new MessageDialog(diffInSeconds.ToString());
-                             await msgbox6.ShowAsync();
+
                              diffInSeconds = diffInSeconds - 900;
                              if ((diffInSeconds + 10) > 0)
                                  n.schedulenotif(diffInSeconds, subitemDet.Items[i].SubItems[j].Title);
-                             MessageDialog msgbox7 = new MessageDialog("conv");
-                             await msgbox7.ShowAsync();
+
                          }
                      }
-                 }*/
+                 }
 
 
 
@@ -386,10 +390,10 @@ namespace ApogeeApp1
                             //ListCars.Remove(new FavClass() { UniqueId = subitem.UniqueId, Id = subitem.Id, Title = subitem.Title, Subtitle = subitem.Subtitle, ImagePath = subitem.ImagePath, Content = subitem.Content });
                         }
                     }
-                    //ListCars.TrimExcess();
-                    //var subitemDet = await SampleDataSource.GetGroupAsync("Schedule");
-                    //schedulednotif n = new schedulednotif();
-                    //n.schedulenotifrem(subitem.Title);
+                    ListCars.TrimExcess();
+                    var subitemDet = await SampleDataSource.GetGroupAsync("Schedule");
+                    schedulednotif n = new schedulednotif();
+                    n.schedulenotifrem(subitem.Title);
                     //int noOfItems = subitemDet.Items.Count;
                     //string date = "25/10/2015";
                     //for (int i = 0; i < noOfItems; i++)

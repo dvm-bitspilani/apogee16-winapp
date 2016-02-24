@@ -119,7 +119,7 @@
             -->
             <AppBarButton Icon="Map" Label="map" Click="MapButton_Click"/>
             <AppBarButton Icon="Calendar" Label="schedule" Click="ScheduleButton_Click"/>
-            <!--<AppBarButton Icon="Clock" Label="events now" Click="EventsNow_Click"/>-->
+            <AppBarButton Icon="Clock" Label="events now" Click="EventsNow_Click"/>
             <AppBarButton Icon="Favorite" Label="favorites" Click="favButton_Click"/>
         </CommandBar>
     </Page.BottomAppBar>

@@ -271,10 +271,10 @@ namespace ApogeeApp1
         {
             Frame.Navigate(typeof(Schedule));
         }
-        //private void EventsNow_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Frame.Navigate(typeof(eventnow));
-        //}
+        private void EventsNow_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(EventsNow));
+        }
         private void favButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Favourite));
