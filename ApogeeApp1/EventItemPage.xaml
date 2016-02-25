@@ -27,7 +27,8 @@
         <DataTemplate x:Key="StdTextTemplate">
             <Grid>
                 <StackPanel>
-                    <TextBlock Text="{Binding Title}" Margin="15,0,0,30" FontSize="25" FontWeight="SemiBold" FontFamily="Assets/Fonts/LANENAR_.ttf#Lane" />
+                    <TextBlock Text="{Binding Title}" Margin="15,0,0,30" FontSize="25" FontWeight="SemiBold" FontFamily="Assets/Fonts/LANENAR_.ttf#Lane" 
+                               HorizontalAlignment="Left" Width="320" TextWrapping="Wrap"/>
                    
                 </StackPanel>
             </Grid>

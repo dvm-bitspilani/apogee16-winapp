@@ -53,10 +53,10 @@ namespace ApogeeApp1
         /// <param name="e">Details about the launch request and process.</param>
         protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
-            //try
-            //{ await ParsePush.SubscribeAsync(""); }
-            //catch
-            //{ }
+            try
+            { await ParsePush.SubscribeAsync(""); }
+            catch
+            { }
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {

@@ -50,19 +50,20 @@
                 <TextBlock Text="{Binding Title}" Margin="0,20,0,10"  FontFamily="Assets/fonts/Moon Light.otf#Moon" FontSize="35" Foreground="Gray"
                        TextWrapping="Wrap"
                        Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
-            </StackPanel>
+            <TextBlock x:Name="ContentHeading" Margin="0,10,0,0" Text="Overview"  FontFamily="Assets/fonts/LANENAR_.ttf#Lane"  TextWrapping="Wrap" FontSize="25" FontWeight="SemiBold" Foreground="White"/>
+        </StackPanel>
 
             <!-- 
             TODO: Content should be placed within the following grid 
                   to show details for the current item
         -->
             <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
-                <StackPanel>
-                    <TextBlock x:Name="ContentHeading" Margin="0,10,0,0" Text="Overview"  FontFamily="Assets/fonts/LANENAR_.ttf#Lane"  TextWrapping="Wrap" FontSize="25" FontWeight="SemiBold" Foreground="White"/>
+                
+                  
                     <ScrollViewer>
                     <TextBlock x:Name="ContentTxt" Margin="0,10,0,0" TextAlignment="Justify" Text="gjgjgjh khkjkkjqetert yiyiui" FontFamily="Assets/fonts/LANENAR_.ttf#Lane" TextWrapping="Wrap" FontSize="20" Foreground="White"></TextBlock>
                     </ScrollViewer>
-                </StackPanel>
+                
 
 
 
