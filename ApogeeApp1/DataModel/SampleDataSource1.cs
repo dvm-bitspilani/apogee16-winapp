@@ -210,17 +210,17 @@ namespace ApogeeApp1.Data1
         {
             if (this._groups.Count != 0)
                 return;
+            var flag = 0;
+            Uri dataUri = new Uri("ms-appx:///DataModel/SampleData1.json");
 
-             //Uri dataUri = new Uri("ms-appx:///DataModel/SampleData1.json");
-
-             // StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(dataUri);
-             //string jsonText = await FileIO.ReadTextAsync(file);
+            StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(dataUri);
+            string jsonText = await FileIO.ReadTextAsync(file);
             try
             {
 
 
-                Windows.Web.Http.HttpClient client = new Windows.Web.Http.HttpClient();
-                var jsonText = await client.GetStringAsync(new Uri("http://bits-apogee.org/2016/schedule_json/"));
+                //Windows.Web.Http.HttpClient client = new Windows.Web.Http.HttpClient();
+                //var jsonText = await client.GetStringAsync(new Uri("http://bits-apogee.org/2016/schedule_json/"));
                 JsonObject jsonObject = JsonObject.Parse(jsonText);
                 JsonArray jsonArray = jsonObject["Groups"].GetArray();
 
@@ -275,9 +275,15 @@ namespace ApogeeApp1.Data1
                 //}
                 //else
                 //{
-                MessageDialog msgbox3 = new MessageDialog("There was a problem in getting data from the server. Error Message: " + ex.Message);
-                msgbox3.ShowAsync();
+                //MessageDialog msgbox3 = new MessageDialog("There was a problem in getting data from the server. Error Message: " + ex.Message);
+                //await msgbox3.ShowAsync();
+                flag = 1;
                 //}
+            }
+            if(flag==1)
+            {
+                MessageDialog msgbox3 = new MessageDialog("Check Your Network Connection. Web Access is required to get data.");
+                await msgbox3.ShowAsync();
             }
         }
     }

@@ -248,9 +248,6 @@ namespace ApogeeApp1
         }
 
 
-
-
-
         async void DefaultLaunch(string uriToLaunch)
         {
             // Launch the URI
@@ -258,9 +255,6 @@ namespace ApogeeApp1
             var uri = new Uri(uriToLaunch);
             var success = await Windows.System.Launcher.LaunchUriAsync(uri);
         }
-
-
-
 
         private void MapButton_Click(object sender, RoutedEventArgs e)
         {

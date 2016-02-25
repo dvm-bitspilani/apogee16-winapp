@@ -31,7 +31,7 @@
     <Grid>
         <ScrollViewer ZoomMode="Enabled">
             <Maps:MapControl MapServiceToken="DKJLafk5-v9uiPmXaMa2_w" x:Name="myMap" Margin="0,-27,0,0" 
-                        LandmarksVisible="True" />                       
+                        LandmarksVisible="True"/>                       
         </ScrollViewer>
     </Grid>
 

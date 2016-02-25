@@ -10,13 +10,13 @@
                     {
                         "UniqueId": "Name1",
                         "Title": "Name1",
-                        "Time": "19:00",
+                        "Time": "08:05",
                         "Venue": "SAC"
                     },
                     {
                         "UniqueId": "Name2",
                         "Title": "Name2",
-                        "Time": "20:00",
+                        "Time": "08:00",
                         "Venue": "FD-II"
                     }
                 ]

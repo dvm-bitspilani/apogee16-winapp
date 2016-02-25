@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -247,14 +246,14 @@ namespace ApogeeApp1.Data
         {
             if (this._groups.Count != 0)
                 return;
-
+            var flag = 0;
             //Uri dataUri = new Uri("ms-appx:///DataModel/SampleData.json");
 
             //StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(dataUri);
             //string jsonText = await FileIO.ReadTextAsync(file);
             try
             {
-
+               
 
                 Windows.Web.Http.HttpClient client = new Windows.Web.Http.HttpClient();
                 var jsonText = await client.GetStringAsync(new Uri("http://bits-apogee.org/2016/windows_json/"));
@@ -321,16 +320,22 @@ namespace ApogeeApp1.Data
             }
             catch (Exception ex)
             {
-                //if(ex.Message== "Exception from HRESULT: 0x80072EE7")
+                //if (ex.Message == "Exception from HRESULT: 0x80072EE7")
                 //{
                 //    MessageDialog msgbox3 = new MessageDialog("Check Your Network Connection. Web Access is required to get data.");
                 //    await msgbox3.ShowAsync();
                 //}
                 //else
                 //{
-                MessageDialog msgbox3 = new MessageDialog("There was a problem in getting data from the server. Error Message: " + ex.Message);
-                msgbox3.ShowAsync();
+                    //MessageDialog msgbox3 = new MessageDialog("There was a problem in getting data from the server. Error Message: " + ex.Message);
+                    //await msgbox3.ShowAsync();
+                flag = 1;
                 //}
+            }
+            if(flag==1)
+            {
+                MessageDialog msgbox3 = new MessageDialog("Check Your Network Connection. Web Access is required to get data.");
+                await msgbox3.ShowAsync();
             }
         }
     }

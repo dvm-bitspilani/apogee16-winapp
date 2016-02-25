@@ -696,6 +696,8 @@ namespace ApogeeApp1
 
         }
 
+        
+
         //private void myMap_MapTapped(MapControl sender, MapInputEventArgs args)
         //{
 
