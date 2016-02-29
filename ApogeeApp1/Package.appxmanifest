@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="37497SUBITS-Pilani.APOGEE2016" Publisher="CN=8DFBA442-2D8C-429D-8A75-C734576E4B88" Version="1.1.0.2" />
+  <Identity Name="37497SUBITS-Pilani.APOGEE2016" Publisher="CN=8DFBA442-2D8C-429D-8A75-C734576E4B88" Version="1.1.0.3" />
   <mp:PhoneIdentity PhoneProductId="6b0c049a-c750-43a6-b703-bc8425fe51db" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>APOGEE 2016</DisplayName>

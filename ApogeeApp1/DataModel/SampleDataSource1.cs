@@ -211,16 +211,16 @@ namespace ApogeeApp1.Data1
             if (this._groups.Count != 0)
                 return;
             var flag = 0;
-            Uri dataUri = new Uri("ms-appx:///DataModel/SampleData1.json");
+            //Uri dataUri = new Uri("ms-appx:///DataModel/SampleData1.json");
 
-            StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(dataUri);
-            string jsonText = await FileIO.ReadTextAsync(file);
+            //StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(dataUri);
+            //string jsonText = await FileIO.ReadTextAsync(file);
             try
             {
 
 
-                //Windows.Web.Http.HttpClient client = new Windows.Web.Http.HttpClient();
-                //var jsonText = await client.GetStringAsync(new Uri("http://bits-apogee.org/2016/schedule_json/"));
+                Windows.Web.Http.HttpClient client = new Windows.Web.Http.HttpClient();
+                var jsonText = await client.GetStringAsync(new Uri("http://bits-apogee.org/2016/schedule_json/"));
                 JsonObject jsonObject = JsonObject.Parse(jsonText);
                 JsonArray jsonArray = jsonObject["Groups"].GetArray();
 
